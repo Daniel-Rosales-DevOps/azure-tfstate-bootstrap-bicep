@@ -1,5 +1,5 @@
 # Terraform tfstate bootstrap (Bicep)
-![](./chicken123.png)
+![](./img/chickegg.png)
 
 This folder bootstraps an Azure Storage backend for Terraform state by creating:
 
