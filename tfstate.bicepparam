@@ -12,7 +12,6 @@ param storageAccountPrefix = 'tfstate'
 
 // this will specify the names of the containers used for each environments backend, 'dev-tfstate' and 'prod-tfstate' etc. specify a single env or multiple envs as needed.
 param environments = [
-  'stoopid'
   'dev'
   'prod'
 ]
