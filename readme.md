@@ -1,5 +1,14 @@
-# Terraform tfstate bootstrap (Bicep)
+# Terraform State Storage on Azure (Bicep IaC)
+
 ![](./img/chickegg.png)
+
+## Why?
+
+- Solves the “chicken-and-egg” problem, Terraform needs a remote backend (state storage + state locking) before you can safely run plan/apply/destroy in terraform towards Azure in the beginning.
+>
+- Removes manual setup: creates the RG, Storage Account, and container(s) for tfstate in one declarative deployment instead of clicking in Portal or stitching together imperative CLI steps.
+---
+### Resources 
 
 This folder bootstraps an Azure Storage backend for Terraform state by creating:
 
@@ -11,7 +20,7 @@ The deployment is safe to re-run: it should converge on the same resources (no d
 
 ---
 
-## Files
+### Files
 
 - `rg.sub.bicep`
   - Subscription-scope entrypoint
@@ -25,20 +34,20 @@ The deployment is safe to re-run: it should converge on the same resources (no d
   - Parameter file that holds the values for the setup/bootstrap
   - Provide your own values for setup or use the default values
 
-### Caution
+#### Caution
 
 For normal usage, only change values in `tfstate.bicepparam`. Change the `.bicep` files only when you intentionally want to modify the bootstrap structure (and always run with `--confirm-with-what-if` first).
 
 ---
 
-## Prereqs
+### Prereqs
 
 - Azure CLI installed
 - Logged in via Azure CLI (`az login`)
 
 ---
 
-## Deploy
+### Deploy
 
 From this folder, run:
 
